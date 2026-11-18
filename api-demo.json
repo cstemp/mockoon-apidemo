@@ -1,0 +1,304 @@
+{
+  "uuid": "9f661422-a5ec-4815-81dd-553073137c30",
+  "lastMigration": 33,
+  "name": "Api demo",
+  "endpointPrefix": "",
+  "latency": 0,
+  "port": 3000,
+  "hostname": "",
+  "folders": [],
+  "routes": [
+    {
+      "uuid": "d3d4a075-933a-47b3-a851-a7c72635d9cb",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "",
+      "responses": [
+        {
+          "uuid": "063aceaf-b4f4-4aff-826b-d0e2d756ae40",
+          "body": "{}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "6d881705-0c27-433b-8419-c5bca18d29ed",
+      "type": "http",
+      "documentation": "",
+      "method": "get",
+      "endpoint": "health",
+      "responses": [
+        {
+          "uuid": "e44fe404-c6e1-4ab5-8f57-0ea3d739d798",
+          "body": "{\n  \"status\": \"ok\",\n  \"service\": \"api-demo\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "7bb81d51-ce89-4740-8573-c469f97b7969",
+      "type": "http",
+      "documentation": "Return a collection of sample users",
+      "method": "get",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "074f76a8-4b03-4d2b-9a9c-4635b580143f",
+          "body": "[\n  {\n    \"id\": 1,\n    \"name\": \"Alice\",\n    \"email\": \"alice@example.com\"\n  },\n  {\n    \"id\": 2,\n    \"name\": \"Bob\",\n    \"email\": \"bob@example.com\"\n  }\n]",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "1ce1c646-0da4-4cc7-ab03-cba81fd4b227",
+      "type": "http",
+      "documentation": "Return a sample user using the requested ID",
+      "method": "get",
+      "endpoint": "users/:id",
+      "responses": [
+        {
+          "uuid": "4d0dc2d5-3118-49c7-95f9-055b0c306414",
+          "body": "{\n  \"id\": \"{{urlParam 'id'}}\",\n  \"name\": \"Sample User\",\n  \"email\": \"user@example.com\"\n}",
+          "latency": 0,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "c7c239f4-704f-4971-a9e9-69a15c0200e1",
+      "type": "http",
+      "documentation": "Create a sample user",
+      "method": "post",
+      "endpoint": "users",
+      "responses": [
+        {
+          "uuid": "1ae0fa3d-c61d-4766-86af-024c631b9836",
+          "body": "{\n  \"id\": 3,\n  \"name\": \"Created User\",\n  \"created\": true\n}",
+          "latency": 0,
+          "statusCode": 201,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "09b233a0-6a3d-48a7-843b-b1bc015d1f7e",
+      "type": "http",
+      "documentation": "Return an intentional server error",
+      "method": "get",
+      "endpoint": "errors/500",
+      "responses": [
+        {
+          "uuid": "db5a495b-ad7b-4059-877f-4bba9142ae26",
+          "body": "{\n  \"error\": \"internal_server_error\",\n  \"message\": \"This is an intentional test error\"\n}",
+          "latency": 0,
+          "statusCode": 500,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    },
+    {
+      "uuid": "67458456-0a39-461b-8753-3ece40cba754",
+      "type": "http",
+      "documentation": "Return a response after a two-second delay",
+      "method": "get",
+      "endpoint": "slow",
+      "responses": [
+        {
+          "uuid": "b823d870-7ac0-4c2b-a854-3a35a7e3c4fe",
+          "body": "{\n  \"status\": \"ok\",\n  \"delayMs\": 2000\n}",
+          "latency": 2000,
+          "statusCode": 200,
+          "label": "",
+          "headers": [],
+          "bodyType": "INLINE",
+          "filePath": "",
+          "databucketID": "",
+          "sendFileAsBody": false,
+          "rules": [],
+          "rulesOperator": "OR",
+          "disableTemplating": false,
+          "fallbackTo404": false,
+          "default": true,
+          "crudKey": "id",
+          "callbacks": []
+        }
+      ],
+      "responseMode": null,
+      "streamingMode": null,
+      "streamingInterval": 0
+    }
+  ],
+  "rootChildren": [
+    {
+      "type": "route",
+      "uuid": "d3d4a075-933a-47b3-a851-a7c72635d9cb"
+    },
+    {
+      "type": "route",
+      "uuid": "6d881705-0c27-433b-8419-c5bca18d29ed"
+    },
+    {
+      "type": "route",
+      "uuid": "7bb81d51-ce89-4740-8573-c469f97b7969"
+    },
+    {
+      "type": "route",
+      "uuid": "1ce1c646-0da4-4cc7-ab03-cba81fd4b227"
+    },
+    {
+      "type": "route",
+      "uuid": "c7c239f4-704f-4971-a9e9-69a15c0200e1"
+    },
+    {
+      "type": "route",
+      "uuid": "09b233a0-6a3d-48a7-843b-b1bc015d1f7e"
+    },
+    {
+      "type": "route",
+      "uuid": "67458456-0a39-461b-8753-3ece40cba754"
+    }
+  ],
+  "proxyMode": false,
+  "proxyHost": "",
+  "proxyRemovePrefix": false,
+  "tlsOptions": {
+    "enabled": false,
+    "type": "CERT",
+    "pfxPath": "",
+    "certPath": "",
+    "keyPath": "",
+    "caPath": "",
+    "passphrase": ""
+  },
+  "cors": true,
+  "headers": [
+    {
+      "key": "Content-Type",
+      "value": "application/json"
+    },
+    {
+      "key": "Access-Control-Allow-Origin",
+      "value": "*"
+    },
+    {
+      "key": "Access-Control-Allow-Methods",
+      "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+    },
+    {
+      "key": "Access-Control-Allow-Headers",
+      "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+    }
+  ],
+  "proxyReqHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "proxyResHeaders": [
+    {
+      "key": "",
+      "value": ""
+    }
+  ],
+  "data": [],
+  "callbacks": []
+}
